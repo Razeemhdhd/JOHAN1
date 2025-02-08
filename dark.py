@@ -26,8 +26,8 @@ db = client['VIKASH']
 users_collection = db['DARK']
 redeem_codes_collection = db['redeem_codes0']
 
-TELEGRAM_BOT_TOKEN = '7635258880:AAFfn3vPkkbSCKzIrFUz_qkw5-ymX5PYRl0'
-ADMIN_USER_ID = 7240083426
+TELEGRAM_BOT_TOKEN = '7826585345:AAETnXbX8BG5Uoj7OVKWik1qqDY-siTD008'
+ADMIN_USER_ID = 6137106915, 1225401466
 
 cooldown_dict = {}
 user_attack_history = {}
@@ -39,7 +39,7 @@ async def help_command(update: Update, context: CallbackContext):
         help_text = (
             "*Here are the commands you can use:* \n\n"
             "*🔸 /start* - Start interacting with the bot.\n"
-            "*🔸 /attack* - Trigger an attack operation.\n"
+            "*🔸 /johan* - Trigger an attack operation.\n"
             "*🔸 /redeem* - Redeem a code.\n"
             "*🔸 /get_id* - ID LENA HAI LOUDE ?.\n"
         )
@@ -48,7 +48,7 @@ async def help_command(update: Update, context: CallbackContext):
             "*💡 Available Commands for Admins:*\n\n"
             "*🔸 /start* - Start the bot.\n"
             "🔸 /status - Check your subscription status\n"
-            "*🔸 /attack* - Start the attack.\n"
+            "*🔸 /johan* - Start the attack.\n"
             "*🔸 /get_id* - Get user id.\n"
             "*🔸 /add [user_id]* - Add a user.\n"
             "*🔸 /remove [user_id]* - Remove a user.\n"
@@ -70,7 +70,7 @@ async def start(update: Update, context: CallbackContext):
 
     message = (
         "*🔥 Welcome to the battlefield! 🔥*\n\n"
-        "*Use /attack <ip> <port> <duration>*\n"
+        "*Use /johan <ip> <port> <duration>*\n"
         "*Let the war begin! ⚔️💥*"
     )
     await context.bot.send_message(chat_id=chat_id, text=message, parse_mode='Markdown')
@@ -105,7 +105,7 @@ async def add_user(update: Update, context: CallbackContext):
 async def remove_user(update: Update, context: CallbackContext):
     user_id = update.effective_user.id
     if user_id != ADMIN_USER_ID:
-        await context.bot.send_message(chat_id=update.effective_chat.id, text="*⛔️ 𝗨𝗻𝗮𝘂𝘁𝗵𝗼𝗿𝗶𝘇𝗲𝗱 𝗔𝗰𝗰𝗲𝘀𝘀!\n\n• 𝗬𝗼𝘂 𝗮𝗿𝗲 𝗻𝗼𝘁 𝘀𝘂𝗯𝘀𝗰𝗿𝗶𝗯𝗲𝗱\n• 𝗣𝘂𝗿𝗰𝗵𝗮𝘀𝗲 𝗮 𝗹𝗶𝗰𝗲𝗻𝘀𝗲 𝗸𝗲𝘆 𝘁𝗼 𝘂𝘀𝗲 𝘁𝗵𝗶𝘀 𝗰𝗼𝗺𝗺𝗮𝗻𝗱\n\n🛒 𝗧𝗼 𝗽𝘂𝗿𝗰𝗵𝗮𝘀𝗲 𝗮𝗻 𝗮𝗰𝗰𝗲𝘀𝘀 𝗸𝗲𝘆:\n• 𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗮𝗻𝘆 𝗮𝗱𝗺𝗶𝗻 𝗼𝗿 𝗿𝗲𝘀𝗲𝗹𝗹𝗲𝗿\n\n📢 𝗖𝗵𝗮𝗻𝗻𝗲𝗹:@PRINCE_OP5*", parse_mode='Markdown')
+        await context.bot.send_message(chat_id=update.effective_chat.id, text="*⛔️ 𝗨𝗻𝗮𝘂𝘁𝗵𝗼𝗿𝗶𝘇𝗲𝗱 𝗔𝗰𝗰𝗲𝘀𝘀!\n\n• 𝗬𝗼𝘂 𝗮𝗿𝗲 𝗻𝗼𝘁 𝘀𝘂𝗯𝘀𝗰𝗿𝗶𝗯𝗲𝗱\n• 𝗣𝘂𝗿𝗰𝗵𝗮𝘀𝗲 𝗮 𝗹𝗶𝗰𝗲𝗻𝘀𝗲 𝗸𝗲𝘆 𝘁𝗼 𝘂𝘀𝗲 𝘁𝗵𝗶𝘀 𝗰𝗼𝗺𝗺𝗮𝗻𝗱\n\n🛒 𝗧𝗼 𝗽𝘂𝗿𝗰𝗵𝗮𝘀𝗲 𝗮𝗻 𝗮𝗰𝗰𝗲𝘀𝘀 𝗸𝗲𝘆:\n• 𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗮𝗻𝘆 𝗮𝗱𝗺𝗶𝗻 𝗼𝗿 𝗿𝗲𝘀𝗲𝗹𝗹𝗲𝗿\n\n📢 𝗖𝗵𝗮𝗻𝗻𝗲𝗹:@KNOWNCHEAT*", parse_mode='Markdown')
         return
     if len(context.args) != 1:
         await context.bot.send_message(chat_id=update.effective_chat.id, text="*⚠️ Usage: /remove <user_id>*", parse_mode='Markdown')
@@ -129,11 +129,11 @@ async def attack(update: Update, context: CallbackContext):
     chat_id = update.effective_chat.id
     user_id = update.effective_user.id
     if not await is_user_allowed(user_id):
-        await context.bot.send_message(chat_id=chat_id, text="*⛔️ 𝗨𝗻𝗮𝘂𝘁𝗵𝗼𝗿𝗶𝘇𝗲𝗱 𝗔𝗰𝗰𝗲𝘀𝘀!\n\n• 𝗬𝗼𝘂 𝗮𝗿𝗲 𝗻𝗼𝘁 𝘀𝘂𝗯𝘀𝗰𝗿𝗶𝗯𝗲𝗱\n• 𝗣𝘂𝗿𝗰𝗵𝗮𝘀𝗲 𝗮 𝗹𝗶𝗰𝗲𝗻𝘀𝗲 𝗸𝗲𝘆 𝘁𝗼 𝘂𝘀𝗲 𝘁𝗵𝗶𝘀 𝗰𝗼𝗺𝗺𝗮𝗻𝗱\n\n🛒 𝗧𝗼 𝗽𝘂𝗿𝗰𝗵𝗮𝘀𝗲 𝗮𝗻 𝗮𝗰𝗰𝗲𝘀𝘀 𝗸𝗲𝘆:\n• 𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗮𝗻𝘆 𝗮𝗱𝗺𝗶𝗻 𝗼𝗿 𝗿𝗲𝘀𝗲𝗹𝗹𝗲𝗿\n\n📢 𝗖𝗵𝗮𝗻𝗻𝗲𝗹:@PRINCE_OP5*", parse_mode='Markdown')
+        await context.bot.send_message(chat_id=chat_id, text="*⛔️ 𝗨𝗻𝗮𝘂𝘁𝗵𝗼𝗿𝗶𝘇𝗲𝗱 𝗔𝗰𝗰𝗲𝘀𝘀!\n\n• 𝗬𝗼𝘂 𝗮𝗿𝗲 𝗻𝗼𝘁 𝘀𝘂𝗯𝘀𝗰𝗿𝗶𝗯𝗲𝗱\n• 𝗣𝘂𝗿𝗰𝗵𝗮𝘀𝗲 𝗮 𝗹𝗶𝗰𝗲𝗻𝘀𝗲 𝗸𝗲𝘆 𝘁𝗼 𝘂𝘀𝗲 𝘁𝗵𝗶𝘀 𝗰𝗼𝗺𝗺𝗮𝗻𝗱\n\n🛒 𝗧𝗼 𝗽𝘂𝗿𝗰𝗵𝗮𝘀𝗲 𝗮𝗻 𝗮𝗰𝗰𝗲𝘀𝘀 𝗸𝗲𝘆:\n• 𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗮𝗻𝘆 𝗮𝗱𝗺𝗶𝗻 𝗼𝗿 𝗿𝗲𝘀𝗲𝗹𝗹𝗲𝗿\n\n📢 𝗖𝗵𝗮𝗻𝗻𝗲𝗹:@KNOWNCHEAT*", parse_mode='Markdown')
         return
     args = context.args
     if len(args) != 3:
-        await context.bot.send_message(chat_id=chat_id, text="*📝 𝗨𝘀𝗮𝗴𝗲: /attack <target> <port> <time>\n𝗘𝘅𝗮𝗺𝗽𝗹𝗲: /attack 1.1.1.1 80 120\n\n⚠️ 𝗟𝗶𝗺𝗶𝘁𝗮𝘁𝗶𝗼𝗻𝘀:\n• 𝗠𝗮𝘅 𝘁𝗶𝗺𝗲: 900 𝘀𝗲𝗰𝗼𝗻𝗱𝘀\n• 𝗖𝗼𝗼𝗹𝗱𝗼𝘄𝗻: 1 𝗺𝗶𝗻𝘂𝘁𝗲𝘀*", parse_mode='Markdown')
+        await context.bot.send_message(chat_id=chat_id, text="*📝 𝗨𝘀𝗮𝗴𝗲: /johan <target> <port> <time>\n𝗘𝘅𝗮𝗺𝗽𝗹𝗲: /johan 1.1.1.1 80 120\n\n⚠️ 𝗟𝗶𝗺𝗶𝘁𝗮𝘁𝗶𝗼𝗻𝘀:\n• 𝗠𝗮𝘅 𝘁𝗶𝗺𝗲: 300 𝘀𝗲𝗰𝗼𝗻𝗱𝘀\n• 𝗖𝗼𝗼𝗹𝗱𝗼𝘄𝗻: 1 𝗺𝗶𝗻𝘂𝘁𝗲𝘀*", parse_mode='Markdown')
         return
     ip, port, duration = args
     if not ip.startswith(valid_ip_prefixes):
@@ -164,7 +164,7 @@ async def attack(update: Update, context: CallbackContext):
         f"*🚀 𝗔𝗧𝗧𝗔𝗖𝗞 𝗟𝗔𝗨𝗡𝗖𝗛𝗘𝗗!*\n"
         f"*🎯 Target Locked: {ip}:{port}*\n"
         f"*⏳ Countdown: {duration} seconds*\n"
-        f"*🔥chudai chalu h feedback bhej dena @PRINCE_OP5💥*"
+        f"*🔥chudai chalu h feedback bhej dena @UknowJoHaN💥*"
     ),
     parse_mode='Markdown'
 )
@@ -261,7 +261,7 @@ async def redeem_code(update: Update, context: CallbackContext):
     chat_id = update.effective_chat.id
     user_id = update.effective_user.id
     if len(context.args) != 1:
-        await context.bot.send_message(chat_id=chat_id, text="*💎 𝗞𝗘𝗬 𝗥𝗘𝗗𝗘𝗠𝗣𝗧𝗜𝗢𝗡\n━━━━━━━━━━━━━━━\n 📝 𝗨𝘀𝗮𝗴𝗲: /redeem @PRINCE_OP5\n\n⚠️ 𝗜𝗺𝗽𝗼𝗿𝘁𝗮𝗻𝘁 𝗡𝗼𝘁𝗲𝘀:\n• 𝗞𝗲𝘆𝘀 𝗮𝗿𝗲 𝗰𝗮𝘀𝗲-𝘀𝗲𝗻𝘀𝗶𝘁𝗶𝘃𝗲\n• 𝗢𝗻𝗲-𝘁𝗶𝗺𝗲 𝘂𝘀𝗲 𝗼𝗻𝗹𝘆\n• 𝗡𝗼𝗻-𝘁𝗿𝗮𝗻𝘀𝗳𝗲𝗿𝗮𝗯𝗹𝗲\n\n🔑 𝗘𝘅𝗮𝗺𝗽𝗹𝗲:/redeem @PRINCE_OP5\n\n💡 𝗡𝗲𝗲𝗱 𝗮 𝗸𝗲𝘆?\n𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗢𝘂𝗿 𝗔𝗱𝗺𝗶𝗻𝘀 𝗢𝗿 𝗥𝗲𝘀𝗲𝗹𝗹𝗲𝗿𝘀\n━━━━━━━━━━━━━━━*", parse_mode='Markdown')
+        await context.bot.send_message(chat_id=chat_id, text="*💎 𝗞𝗘𝗬 𝗥𝗘𝗗𝗘𝗠𝗣𝗧𝗜𝗢𝗡\n━━━━━━━━━━━━━━━\n 📝 𝗨𝘀𝗮𝗴𝗲: /redeem @UknowJoHaN\n\n⚠️ 𝗜𝗺𝗽𝗼𝗿𝘁𝗮𝗻𝘁 𝗡𝗼𝘁𝗲𝘀:\n• 𝗞𝗲𝘆𝘀 𝗮𝗿𝗲 𝗰𝗮𝘀𝗲-𝘀𝗲𝗻𝘀𝗶𝘁𝗶𝘃𝗲\n• 𝗢𝗻𝗲-𝘁𝗶𝗺𝗲 𝘂𝘀𝗲 𝗼𝗻𝗹𝘆\n• 𝗡𝗼𝗻-𝘁𝗿𝗮𝗻𝘀𝗳𝗲𝗿𝗮𝗯𝗹𝗲\n\n🔑 𝗘𝘅𝗮𝗺𝗽𝗹𝗲:/redeem @UknowJoHaN\n\n💡 𝗡𝗲𝗲𝗱 𝗮 𝗸𝗲𝘆?\n𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗢𝘂𝗿 𝗔𝗱𝗺𝗶𝗻𝘀 𝗢𝗿 𝗥𝗲𝘀𝗲𝗹𝗹𝗲𝗿𝘀\n━━━━━━━━━━━━━━━*", parse_mode='Markdown')
         return
     code = context.args[0]
     redeem_entry = redeem_codes_collection.find_one({"code": code})
